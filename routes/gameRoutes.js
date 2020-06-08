@@ -38,7 +38,7 @@ router.post('/', (req,res)=>{
     let newGame = {}
 
     // newGame.id = (games.length+1).toString()
-    newGame.id = {uuid}
+    newGame.id = uuid();
     newGame.name = req.body.name;
     newGame.description = req.body.description;
     newGame.yearReleased = req.body.yearReleased;
@@ -50,9 +50,9 @@ router.post('/', (req,res)=>{
 })
 
 
-router.put('/:id', (req, res) => {
+router.put('/:name', (req, res) => {
 
-    let game = games.filter((game) => game.id === req.params.id);
+    let game = games.filter((game) => game.name === req.params.name);
     let updatedGame = req.body;
     if (game.length > 0) {
 
@@ -69,10 +69,10 @@ router.put('/:id', (req, res) => {
   });
 
 
-  router.delete('/:id',(req,res)=>{
+  router.delete('/:name',(req,res)=>{
 
 
-    const game = games.filter(game=>game.id !== req.params.id)
+    const game = games.filter(game=>game.name !== req.params.name)
     return res.status(200).json({confirmation: 'success',game})
     })
 
