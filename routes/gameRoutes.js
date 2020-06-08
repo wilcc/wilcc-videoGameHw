@@ -64,7 +64,6 @@ router.put('/:name', (req, res) => {
         }
       });
     }
-    // return the updated users
     return res.json({ message: 'Game Updated', games });
   });
 
