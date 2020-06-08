@@ -24,7 +24,7 @@ router.get('/getSingleGame/:name',(req,res)=>{
 
 
 
-router.post('/', (req,res)=>{
+router.post('/createGame', (req,res)=>{
 
     if(!req.body.name || !req.body.description){
         return res.status(400).json({confirmation : 'failed', message: 'You must fill in name and description'})
